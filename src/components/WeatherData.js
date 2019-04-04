@@ -4,7 +4,8 @@ import {
   Text,
   View,
   ScrollView,
-  Dimensions
+  Dimensions,
+  ActivityIndicator
 } from 'react-native'
 
 import gql from "graphql-tag"
@@ -12,9 +13,10 @@ import { Query } from "react-apollo"
 
 import { Card } from 'native-base'
 
+// Query weather data data per location: WOEID
 const GET_CITY = gql`
-  {
-    getForecast(woeid: 44418) {
+  query City($woeid: Int!){
+    getForecast(woeid: $woeid) {
       title
       timezone
       consolidated_weather {
@@ -32,15 +34,30 @@ const GET_CITY = gql`
   }
 `
 // Create an Apollo Query component
-const WeatherData = () => (
+const WeatherData = (props) => (
   <Query
     query={GET_CITY}
+    variables={{ woeid: props.city }}
   >
     {({ loading, error, data }) => {
-      if (loading) return <Text>Loading...</Text>
-      if (error) return <Text>Error :(</Text>
+      {/* Show activity indicator until data is retrieved */ }
+      if (loading) return <ActivityIndicator size="large" color="#69FB" />
+      {/* Show error message if there is a problem */ }
+      if (error) return (
+        <View style={{ alignItems: 'center' }}>
+          <Text>Error :(</Text>
+        </View>
+      )
+      {/* Otherwise, show weather data */ }
       return (
         <View style={{ flex: 1 }}>
+          {/* City of ... */}
+          <View style={{ alignItems: 'center' }}>
+            <Text style={styles.textStyle}>
+              City of {data.getForecast.title}
+            </Text>
+          </View>
+          {/* List of days with weather forecast */}
           <ScrollView contentContainerStyle={styles.container}>
             {
               data.getForecast.consolidated_weather.map((day, index) => (

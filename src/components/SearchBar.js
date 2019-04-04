@@ -24,7 +24,7 @@ const SearchBar = (props) => (
     <Button
       full
       primary
-      onPress={props.showCityWeather}>
+      onPress={props.location}>
       <Text>Search</Text>
     </Button>
   </Container>
@@ -34,7 +34,7 @@ export default SearchBar
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.5,
+    flex: 0.35,
     alignItems: 'center',
     justifyContent: 'center',
   },
