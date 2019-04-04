@@ -27,9 +27,7 @@ cd Weather-Apollo-Client
 ```
 
 
-## Running the application
-
-* Install client dependencies.
+## Install client dependencies.
 
 ```
 yarn
@@ -39,15 +37,15 @@ yarn
 npm install
 ```
 
-* Run the GraphQL server
+## Run the GraphQL server
 
 Follow the instructions in this [repo](https://github.com/jtaylor1989/GraphQL-Server).
 
-* Connect the React Native app to the GraphQL server.
+## Connect the React Native app to the GraphQL server.
 
-Now that your server is up and running, you can start the client.
+* Now that your server is up and running, you can start the client.
 
-Run the following in the terminal under your project directory.
+* Run the following in the terminal under your project directory.
 
 ```
 expo start --ios
