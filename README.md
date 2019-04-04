@@ -55,3 +55,7 @@ expo start --ios
 expo start --android
 ```
 
+* You should be able to enter a city name and get the weather forecast for the upcoming days.
+
+<img width="798" alt="Demo" src="https://user-images.githubusercontent.com/26605247/55568296-5ab17180-56f7-11e9-9dd5-d9330e02d3d8.png">
+
