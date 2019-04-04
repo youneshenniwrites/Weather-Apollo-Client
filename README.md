@@ -1,7 +1,7 @@
 # React Native Weather App With Expo, Apollo GraphQL.
 
 This Weather App using React Native and Expo is wrapped with the Apollo GraphQL CLient. 
-The Apollo Client is configured to connect with a GraphQL server to retrieve weather forecast data.
+The Apollo Client is configured to connect with a GraphQL server (link [here](https://github.com/jtaylor1989/GraphQL-Server)) to retrieve weather forecast data.
 
 
 ## App Overview
@@ -39,7 +39,15 @@ yarn
 npm install
 ```
 
-* Launch the React Native app in your simulator under your project directory.
+* Run the GraphQL server
+
+Follow the instructions in this [repo](https://github.com/jtaylor1989/GraphQL-Server).
+
+* Connect the React Native app to the GraphQL server.
+
+Now that your server is up and running, you can start the client.
+
+Run the following in the terminal under your project directory.
 
 ```
 expo start --ios
